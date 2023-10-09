@@ -1,0 +1,29 @@
+/* styles.css */
+
+/* Style the rounded image container */
+.rounded-image-container {
+    background-color: black;
+    text-align: center; /* Center-align the content */
+    margin-bottom: 20px; /* Add some spacing between containers */
+}
+
+/* Style the rounded image */
+.rounded-image {
+    background-color: black;
+    border-radius: 50%; /* Make the image rounded */
+    width: 100px; /* Adjust the image size as needed */
+    height: 100px;
+    display: block; /* Center the image horizontally */
+    margin: 0 auto; /* Center the image horizontally */
+}
+
+/* Style the text below the image */
+.image-text {
+    margin-top: 10px; /* Add spacing between the image and text */
+}
+
+/* Style the image title */
+.image-title {
+    font-size: 18px; /* Adjust the font size as needed */
+    color: #333; /* Set the text color */
+}

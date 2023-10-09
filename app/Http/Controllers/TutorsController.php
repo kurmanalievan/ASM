@@ -30,4 +30,11 @@ class TutorsController extends Controller
   public function book(){
     return view('tutors.book');
   }
+
+  public function details(){
+    return view('tutors.tutor_details');
+  }
+  public function tutorslist(){
+    return view('tutors.tutorslist');
+  }
 }
