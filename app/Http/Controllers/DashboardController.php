@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
     public function index(){
-        return view('dashboard.dashboard');
+        $sessions = Auth::user()->sessions;
+        // $sessions = Session::all();
+        // dd($sessions);
+        return view('dashboard.dashboard',[
+      'sessions' => $sessions,
+    ]);
     }
 
     public function details(){

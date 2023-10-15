@@ -21,10 +21,8 @@ class TutorsController extends Controller
         //         "description" => "desc2",
         //     ],
         // ];
-        $tutors = Tutor::all();
-        return view('tutors.tutors', [
-            "tutors" => $tutors,
-        ]);
+        // $tutors = Tutor::all();
+        return view('tutors.tutors');
     }
 
   public function book(){

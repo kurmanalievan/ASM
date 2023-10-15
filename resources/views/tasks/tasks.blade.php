@@ -13,24 +13,14 @@
 
   <div class="card mb-3">
     <h4 class="card-header">Upcoming tasks</h4>
+@foreach($tasks as $task)
     <div class="list-group">
       <div class="list-group-item list-group-item-secondary d-flex justify-content-between align-items-center">
-        Cras justo odio
+        {{$task['title']}}
         <a href="/taskdetails" class="btn btn-info">Open</a>
       </div>
     </div>
-    <div class="list-group">
-      <div class="list-group-item list-group-item-secondary d-flex justify-content-between align-items-center">
-        Cras justo odio
-        <a href="/taskdetails" class="btn btn-info">Open</a>
-      </div>
-    </div>
-    <div class="list-group">
-      <div class="list-group-item list-group-item-secondary d-flex justify-content-between align-items-center">
-        Cras justo odio
-        <a href="/taskdetails" class="btn btn-info">Open</a>
-      </div>
-    </div>
+@endforeach
   </div>
 
   <div class="card mb-3">
