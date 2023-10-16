@@ -17,9 +17,10 @@
   <hr class="my-4">
 </div>
 {{-- <h1>Upcoming Sessions</h1> --}}
+@foreach($sessions as $session)
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title">Wed. 4 September</h4>
+      <h4 class="card-title">{{ $session['date']}}</h4>
       <h6 class="card-subtitle mb-2 text-muted">Math</h6>
       {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
       <div class="form-group row">
@@ -36,25 +37,7 @@
       {{-- <a href="#" class="card-link">Another link</a> --}}
     </div>
 </div>
-<div class="card">
-    <div class="card-body">
-        <h4 class="card-title">Wed. 4 September</h4>
-        <h6 class="card-subtitle mb-2 text-muted">Math</h6>
-        {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
-        <div class="form-group row">
-          <label for="staticEmail" class="col-sm-2 col-form-label">Time:</label>
-          <div class="col-sm-10">
-            <input type="text" readonly="" class="form-control-plaintext" id="staticEmail" value="2pm - 3pm">
-          </div>
-          <label for="staticEmail" class="col-sm-2 col-form-label">Tutor:</label>
-          <div class="col-sm-10">
-            <input type="text" readonly="" class="form-control-plaintext" id="staticEmail" value="John Smith">
-          </div>
-        </div>
-        <a href="/details" class="btn btn-primary">Open</a>
-        {{-- <a href="#" class="card-link">Another link</a> --}}
-      </div>
-    </div>
+@endforeach
     <hr/>
    {{-- <h1>Last Session</h1> --}}
 

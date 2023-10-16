@@ -44,10 +44,16 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function sessions() {
+    public function studentsessions() {
+        return $this->hasMany(Session::class, 'student_id');
+    }
+    public function tutorsessions() {
         return $this->hasMany(Session::class, 'tutor_id');
     }
     public function tasks() {
         return $this->hasMany(Task::class, 'tutor_id');
+    }
+    public function discussions() {
+        return $this->hasMany(Discussion::class, 'to');
     }
 }

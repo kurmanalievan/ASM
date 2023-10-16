@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tutor;
+use App\Models\User;
 
 class TutorsController extends Controller
 {
@@ -22,7 +23,10 @@ class TutorsController extends Controller
         //     ],
         // ];
         // $tutors = Tutor::all();
-        return view('tutors.tutors');
+        // $tutors = User::where('role', 'tutor')->get();
+        // $tutors = User
+        return view('tutors.tutors'
+      );
     }
 
   public function book(){
@@ -33,6 +37,8 @@ class TutorsController extends Controller
     return view('tutors.tutor_details');
   }
   public function tutorslist(){
-    return view('tutors.tutorslist');
+    $tutors = User::where('role', 'tutor')->get();
+    return view('tutors.tutorslist',
+    ['tutors' => $tutors, ]);
   }
 }

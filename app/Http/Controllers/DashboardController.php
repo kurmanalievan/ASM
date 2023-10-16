@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class DashboardController extends Controller
 {
     public function index(){
-        $sessions = Auth::user()->sessions;
+        $sessions = Auth::user()->studentsessions;
         // $sessions = Session::all();
         // dd($sessions);
         return view('dashboard.dashboard',[
@@ -21,7 +21,10 @@ class DashboardController extends Controller
         return view('dashboard.details');
     }
     public function tutordashboard(){
-        return view('dashboard.tutordashboard');
+        $sessions = Auth::user()->tutorsessions;
+        return view('dashboard.tutordashboard',
+        ['sessions' => $sessions,]
+    );
     }
     
 }

@@ -2,16 +2,18 @@
 
 @section('title', 'Discussion')
 @section('content')
+@foreach($discussions as $discussion)
   <div class="card border-light mb-3" style="max-width: 20rem;">
-  <div class="card-header"><strong>From:</strong> Tom <strong>To:</strong> Tim</div>
+  <div class="card-header"><strong>From:</strong> {{$discussion['from']}} <strong>To:</strong> {{$discussion['to']}}</div>
   <div class="card-body">
     {{-- <h4 class="card-title">Light card title</h4>
        <div class="form-group"> --}}
       {{-- <label for="exampleTextarea" class="form-label mt-4">Example textarea</label> --}}
-      <textarea @readonly(true) class="form-control" id="exampleTextarea" rows="3">This is gonna be the message</textarea>
+      <textarea @readonly(true) class="form-control" id="exampleTextarea" rows="3">{{ $discussion['text']}}</textarea>
     {{-- </div> --}}
   </div>
 </div>
+@endforeach
  <hr/>
  <h6>Write a new message:</h6>
  <div class="card border-light mb-3" style="max-width: 20rem;">

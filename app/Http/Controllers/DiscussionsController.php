@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DiscussionsController extends Controller
 {
@@ -13,7 +14,9 @@ class DiscussionsController extends Controller
           ]);
     }
     public function discussion(){
-        return view('discussions.discussion');
+        $discussions = Auth::user()->discussions;
+        return view('discussions.discussion', 
+    ['discussions' => $discussions,]);
     }
     public function tutordiscussions(){
         return view('discussions.tutordiscussions');

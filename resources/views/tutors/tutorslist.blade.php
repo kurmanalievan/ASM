@@ -9,7 +9,7 @@
     <hr class="my-4">
 </div>
 
-
+@foreach($tutors as $tutor)
 <div class="card">
   <div class="card-body">
 <div class="container">
@@ -19,7 +19,7 @@
     </div>
     <div class="col-md-8"> 
       <div class="card-body">
-        <h4 class="card-title">John Smith</h4>
+        <h4 class="card-title">{{ $tutor['name']}}</h4>
         <h6 class="card-subtitle mb-2 text-muted">Programming</h6>
         <p><em>"I've always loved programming"</em></p>
       </div>
@@ -28,7 +28,7 @@
 </div>
 </div>
 </div>
-
+@endforeach
 <div class="card">
   <div class="card-body">
 <div class="container">
