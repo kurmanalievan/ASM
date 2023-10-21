@@ -2,6 +2,7 @@
 
 @section('title', 'Dashboard')
 @section('content')
+{{-- @include('student.dashboard') --}}
   <!-- main page -->
   <style>
     .card {
@@ -12,15 +13,14 @@
   }
 </style>
 <div class="bg-light p-5 rounded">
-  <h1 class="display-4">Teacher's Dashboard</h1>
+  <h1 class="display-4">Student's Dashboard</h1>
   <p class="lead">This is a simple hero unit, a simple Jumbotron-style component for calling extra attention to featured content or information.</p>
   <hr class="my-4">
 </div>
-{{-- <h1>Upcoming Sessions</h1> --}}
-@foreach($sessions as $session)
+ @foreach($sessions as $session)
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title">{{ $session['date']}}</h4>
+      <h4 class="card-title">{{ $session['date'] }}</h4>
       <h6 class="card-subtitle mb-2 text-muted">Math</h6>
       {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
       <div class="form-group row">
@@ -38,7 +38,5 @@
     </div>
 </div>
 @endforeach
-    <hr/>
-   {{-- <h1>Last Session</h1> --}}
 
 @endsection

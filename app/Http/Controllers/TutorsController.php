@@ -10,35 +10,23 @@ class TutorsController extends Controller
 {
     //
     public function index(){
-        // $tutors = [
-        //     [
-        //         "id" => "1",
-        //         "name" => "project1",
-        //         "description" => "desc1",
-        //     ],
-        //     [
-        //         "id" => "2",
-        //         "name" => "project2",
-        //         "description" => "desc2",
-        //     ],
-        // ];
         // $tutors = Tutor::all();
         // $tutors = User::where('role', 'tutor')->get();
         // $tutors = User
-        return view('tutors.tutors'
+        return view('student.tutors'
       );
     }
 
   public function book(){
-    return view('tutors.book');
+    return view('student.book');
   }
 
   public function details(){
-    return view('tutors.tutor_details');
+    return view('student.tutor_details');
   }
   public function tutorslist(){
     $tutors = User::where('role', 'tutor')->get();
-    return view('tutors.tutorslist',
+    return view('tutor.tutorslist',
     ['tutors' => $tutors, ]);
   }
 }

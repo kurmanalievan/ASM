@@ -2,6 +2,7 @@
 
 @section('title', 'Tutors')
 @section('content')
+
   <!-- main page -->
   <div class="bg-light p-5 rounded">
     <h1 class="display-4">Hello, world!</h1>

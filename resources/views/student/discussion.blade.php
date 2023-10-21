@@ -4,7 +4,7 @@
 @section('content')
 @foreach($discussions as $discussion)
   <div class="card border-light mb-3" style="max-width: 20rem;">
-  <div class="card-header"><strong>From:</strong> {{$discussion['from']}} <strong>To:</strong> {{$discussion['to']}}</div>
+  <div class="card-header"><strong>From:</strong> {{$discussion->userfrom->name}} <strong>To:</strong> {{$discussion->userto->name}}</div>
   <div class="card-body">
     {{-- <h4 class="card-title">Light card title</h4>
        <div class="form-group"> --}}

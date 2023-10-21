@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -9,19 +10,20 @@ class DiscussionsController extends Controller
 {
     public function index(){
         $projects = "this is  a string ";
-        return view('discussions.discussions', [
+        return view('student.discussions', [
             'projects' => $projects,
           ]);
     }
     public function discussion(){
-        $discussions = Auth::user()->discussions;
-        return view('discussions.discussion', 
+        dd(User::getTutors());
+        $discussions = Auth::user()->discussions();
+        return view('student.discussion', 
     ['discussions' => $discussions,]);
     }
     public function tutordiscussions(){
-        return view('discussions.tutordiscussions');
+        return view('tutor.tutordiscussions');
     }
     public function tutordiscussion(){
-        return view('discussions.tutordiscussion');
+        return view('tutor.tutordiscussion');
     }
 }

@@ -10,22 +10,22 @@ class TasksController extends Controller
     public function index(){
         $tasks = Auth::user()->tasks;
         // dd($tasks);
-        return view('tasks.tasks', 
+        return view('tutor.tasks', 
         [ 'tasks' => $tasks, ]
     );
     }
    
     public function details(){
-        return view('tasks.taskdetails');
+        return view('student.taskdetails');
     }
    
     public function tutortasks(){
-        return view('tasks.tutortasks');
+        return view('tutor.tutortasks');
     }
     public function tutortaskdetails(){
-        return view('tasks.tutortaskdetails');
+        return view('tutor.tutortaskdetails');
     }
     public function tutortaskassign(){
-        return view('tasks.tutortaskassign');
+        return view('tutor.tutortaskassign');
     }
 }

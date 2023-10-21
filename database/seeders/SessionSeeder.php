@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Session;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\User;
 
 class SessionSeeder extends Seeder
 {
@@ -15,6 +16,14 @@ class SessionSeeder extends Seeder
     public function run(): void
     {
         DB::table('sessions')->truncate();
-        Session::factory(15)->create();
+        for($i = 0;$i < 15; $i++){
+            $tutor = User::getRandomTutor();
+            $student = User::getRandomStudent();
+            Session::factory([
+                'tutor_id' => $tutor->id,
+                'student_id' => rand(0,1)=== 1 ? $student->id : null,
+            ])->create();
+        }
+        // Session::factory(15)->create()->each(function());
     }
 }

@@ -16,14 +16,9 @@ class DiscussionFactory extends Factory
      */
     public function definition(): array
     {
-        // 'tutor_id' => fake()->numberBetween(1,50),
-        // 'date' => fake()->date(),
-        // 'from' => fake()->time(),
-        // 'to' => fake()->time(),
-        // 'student_id' => fake()->numberBetween(1,50),
         return [
-            'from' => fake()->numberBetween(1,14),
-            'to' => fake()->numberBetween(1,14),
+            'from' => fake()->numberBetween(1,15),
+            'to' => fake()->numberBetween(1,15),
             'date' => fake()->date(),
             'text' => fake()->text(),
         ];
