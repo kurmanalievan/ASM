@@ -9,13 +9,13 @@ use Illuminate\Support\Facades\Auth;
 class DiscussionsController extends Controller
 {
     public function index(){
-        $projects = "this is  a string ";
-        return view('student.discussions', [
-            'projects' => $projects,
+        $discussions = Auth::user()->discussions();
+        return view('discussions', [
+            'discussions' => $discussions,
           ]);
     }
     public function discussion(){
-        dd(User::getTutors());
+        // dd(User::getTutors());
         $discussions = Auth::user()->discussions();
         return view('student.discussion', 
     ['discussions' => $discussions,]);

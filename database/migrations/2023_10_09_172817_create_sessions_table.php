@@ -12,16 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('sessions', function (Blueprint $table) {
+            // $table->forei
             $table->id();
-            $table->foreignId('tutor_id')->constrained(
-                table: 'users', indexName: 'id'
-            );
+            $table->integer('tutor_id');
             $table->date('date');
             $table->time('from');
             $table->time('to');
-            $table->foreignId('student_id')->constrained(
-                table: 'users', indexName: 'id'
-            );
+            $table->integer('student_id');
             $table->timestamps();
         });
     }

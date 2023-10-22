@@ -27,13 +27,13 @@ Route::get('/', function () {
 // });
 Route::middleware(['user.role'])->group(function () {
 
-    Route::group(['middleware' => 'user.role:tutor'], function () {
-        Route::get('/tutor/dashboard', [DashboardController::class, "tutorr"])->name('tutor.dashboard');
-    });
+    // Route::group(['middleware' => 'user.role:tutor'], function () {
+    //     Route::get('/tutor/dashboard', [DashboardController::class, "tutorr"])->name('tutor.dashboard');
+    // });
 
-    Route::group(['middleware' => 'user.role:student'], function () {
-        Route::get('/student/dashboard', [DashboardController::class, "index"])->name('student.dashboard');
-    });
+    // Route::group(['middleware' => 'user.role:student'], function () {
+    //     Route::get('/student/dashboard', [DashboardController::class, "index"])->name('student.dashboard');
+    // });
 
 
     // Define your routes here that require role-based views

@@ -4,7 +4,7 @@
 @section('content')
   <!-- main page -->
   <div class="bg-light p-5 rounded">
-    <h1 class="display-4">Here you can the list of tutors</h1>
+    <h1 class="display-4">Students view</h1>
     <p class="lead">This is a simple hero unit, a simple Jumbotron-style component for calling extra attention to featured content or information.</p>
     <hr class="my-4">
     <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
@@ -35,8 +35,28 @@
     <a href="#" class="card-link">Details</a>
   </div>
 </div> --}}
-
+@foreach($tutors as $tutor)
 <div class="card">
+  <div class="card-body">
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"> 
+      <img src="https://cdn0.xtramath.org/images/signin-student.svg" class="card-img-top">
+    </div>
+    <div class="col-md-8"> 
+      <div class="card-body">
+        <h4 class="card-title">{{ $tutor['name']}}</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Programming</h6>
+        <p><em>"I've always loved programming"</em></p>
+        <a href="tutordetails" class="card-link">Details</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+@endforeach
+{{-- <div class="card">
   <div class="card-body">
 <div class="container">
   <div class="row">
@@ -49,14 +69,14 @@
         <h6 class="card-subtitle mb-2 text-muted">Programming</h6>
         <p><em>"I've always loved programming"</em></p>
         <a href="tutordetails" class="card-link">Details</a>
-        {{-- <a href="#" class="card-link">Another link</a> --}}
+        {{-- <a href="#" class="card-link">Another link</a> --
       </div>
     </div>
   </div>
 </div>
 </div>
-</div>
-
+</div> --}}
+{{-- 
 <div class="card">
   <div class="card-body">
 <div class="container">
@@ -70,12 +90,12 @@
         <h6 class="card-subtitle mb-2 text-muted">Math</h6>
         <p><em>"I've always loved math"</em></p>
         <a href="/tutordetails" class="card-link">Details</a>
-        {{-- <a href="#" class="card-link">Another link</a> --}}
+        {{-- <a href="#" class="card-link">Another link</a> --
       </div>
     </div>
   </div>
 </div>
 </div>
-</div>
+</div> --}}
 
 @endsection
