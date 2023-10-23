@@ -40,12 +40,12 @@ Route::middleware(['user.role'])->group(function () {
     Route::get('/tutors', [TutorsController::class, "index"])->middleware('auth'); //->middleware('can:isStudent');
     Route::get('/discussions', [DiscussionsController::class, "index"])->middleware('auth');
     Route::get('/tutor', [ProfileController::class, "tutor"])->middleware('auth');
-    Route::get('/tutorslist', [TutorsController::class, "tutorslist"])->middleware('auth');
+    // Route::get('/tutorslist', [TutorsController::class, "tutorslist"])->middleware('auth');
     Route::get('/tasks', [TasksController::class, "index"])->middleware('auth');
     Route::get('/support', [LanguageController::class, "index"])->middleware('auth');
     Route::get('/profile', [ProfileController::class, "index"])->middleware('auth');
     Route::get('/dashboard', [DashboardController::class, "index"])->middleware('auth');
-    Route::get('/details', [DashboardController::class, "details"])->middleware('auth');
+    Route::get('/details/{id}', [DashboardController::class, "details"])->middleware('auth')->name('session.details');
     Route::get('/tutors/{id}/book', [TutorsController::class, "book"])->middleware('auth');
     Route::get('/tutors/{id}/tutorsdetails', [TutorsController::class, "details"])->middleware('auth')->name('tutor.details');
     Route::get('/taskdetails/{id}', [TasksController::class, "details"])->middleware('auth')->name('task.details');

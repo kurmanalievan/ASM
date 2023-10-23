@@ -12,23 +12,17 @@ class DashboardController extends Controller
     public function index(){
         $student_sessions = Auth::user()->studentsessions;
         $tutor_sessions = Auth::user()->tutorsessions;
-    //     // $sessions = Session::all();
-    //     // dd($sessions);
-    //     return view('student.dashboard',[
-    //   'sessions' => $sessions,
-    // ]);
+        $role = auth()->user()->role;
 
-    $role = auth()->user()->role;
-
-    if ($role === 'tutor') {
-        return view('tutor.dashboard',
-        ['sessions' => $tutor_sessions,]
-    );
-    } elseif ($role === 'student') {
-        return view('student.dashboard',
-        ['sessions' => $student_sessions,]
-    );
-    }
+        if ($role === 'tutor') {
+            return view('tutor.dashboard',
+            ['sessions' => $tutor_sessions,]
+        );
+        } elseif ($role === 'student') {
+            return view('student.dashboard',
+            ['sessions' => $student_sessions,]
+        );
+        }
     }
     
     // public function tutorr(){
@@ -37,8 +31,18 @@ class DashboardController extends Controller
     //     ['sessions' => $sessions,]);
     // }
 
-    public function details(){
-        return view('student.details');
+    public function details($id){
+        $role = auth()->user()->role;
+        $session = Session::find($id);
+        if ($role === 'tutor') {
+            return view('tutor.details',
+            ['session' => $session,]
+        );
+        } elseif ($role === 'student') {
+            return view('student.details',
+            ['session' => $session,]
+        );
+        }
     }
     // public function tutordashboard(){
     //     $sessions = Auth::user()->tutorsessions;

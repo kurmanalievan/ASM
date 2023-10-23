@@ -31,10 +31,10 @@
         </div>
         <label for="staticEmail" class="col-sm-2 col-form-label">Tutor:</label>
         <div class="col-sm-10">
-          <input type="text" readonly="" class="form-control-plaintext" id="staticEmail" value="John Smith">
+          <input type="text" readonly="" class="form-control-plaintext" id="staticEmail" value="{{$session->student->name}}">
         </div>
       </div>
-      <a href="/details" class="btn btn-primary">Open</a>
+      <a href="{{ route('session.details', $session->id) }}" class="btn btn-primary">Open</a>
       {{-- <a href="#" class="card-link">Another link</a> --}}
     </div>
 </div>

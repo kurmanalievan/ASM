@@ -69,6 +69,7 @@
     </div>
       {{-- <button type="submit" class="btn btn-primary">Edit</button> --}}
       <a href="/dashboard" class="btn btn-primary">Cancel</a>
+      <a href="/assign" class="btn btn-primary">Assign task</a>
     </fieldset>
   </form>
 @endsection
