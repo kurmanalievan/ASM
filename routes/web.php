@@ -47,10 +47,10 @@ Route::middleware(['user.role'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, "index"])->middleware('auth');
     Route::get('/details', [DashboardController::class, "details"])->middleware('auth');
     Route::get('/tutors/{id}/book', [TutorsController::class, "book"])->middleware('auth');
-    Route::get('/tutordetails', [TutorsController::class, "details"])->middleware('auth');
-    Route::get('/taskdetails', [TasksController::class, "details"])->middleware('auth');
+    Route::get('/tutors/{id}/tutorsdetails', [TutorsController::class, "details"])->middleware('auth')->name('tutor.details');
+    Route::get('/taskdetails/{id}', [TasksController::class, "details"])->middleware('auth')->name('task.details');
     Route::get('/discussion', [DiscussionsController::class, "discussion"])->middleware('auth');
-    Route::get('/tutortasks', [TasksController::class, "tutortasks"])->middleware('auth');
+    // Route::get('/tutortasks', [TasksController::class, "tutortasks"])->middleware('auth');
     Route::get('/profiletutor', [ProfileController::class, "tutor"])->middleware('auth');
     Route::get('/submitted', [TasksController::class, "tutortaskdetails"])->middleware('auth');
     Route::get('/assign', [TasksController::class, "tutortaskassign"])->middleware('auth');

@@ -12,13 +12,13 @@
       </h2>
       <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
         <div class="accordion-body">
-          <strong>Due: </strong> Fri, 3pm
+          <strong>Due: </strong> {{$task['date']}}
         </div>
         <div class="accordion-body">
-            <strong>Instructions: </strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. 
+            <strong>Instructions: </strong> {{ $task['instructions']}}
           </div>
           <div class="accordion-body">
-            <strong>Points: </strong> 5
+            <strong>Points: </strong> {{ $task['points']}}
           </div>
           <div class="accordion-body">
             <strong>Submitted file: </strong> there should be a submitted file here

@@ -10,7 +10,7 @@
 </div>
 
   <div class="card mb-3">
-    <h3 class="card-header">John Smith</h3>
+    <h3 class="card-header">{{$tutor['name']}}</h3>
     {{-- <div class="card-body"> --}}
     
         <div class="card-body">

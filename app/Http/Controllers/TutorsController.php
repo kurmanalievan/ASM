@@ -33,8 +33,9 @@ class TutorsController extends Controller
     return view('student.book');
   }
 
-  public function details(){
-    return view('student.tutor_details');
+  public function details($id){
+    $tutor = User::where('role', 'tutor')->find($id);
+    return view('student.tutordetails', ['tutor' => $tutor]);
   }
   public function tutorslist(){
     $tutors = User::where('role', 'tutor')->get();

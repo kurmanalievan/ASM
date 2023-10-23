@@ -48,7 +48,7 @@
         <h4 class="card-title">{{ $tutor['name']}}</h4>
         <h6 class="card-subtitle mb-2 text-muted">Programming</h6>
         <p><em>"I've always loved programming"</em></p>
-        <a href="tutordetails" class="card-link">Details</a>
+        <a href="{{ route('tutor.details', $tutor->id) }}" class="card-link">Details</a>
       </div>
     </div>
   </div>
