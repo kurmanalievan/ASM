@@ -7,9 +7,11 @@ use Illuminate\Http\Request;
 class ProfileController extends Controller
 {
     public function index(){
-        return view('student.profile');
-    }
-    public function tutor(){
-        return view('tutor.tutor');
+        $role = auth()->user()->role;
+        if ($role === 'tutor') {
+            return view('tutor.profile' );
+        } elseif ($role === 'student') {
+            return view('student.profile');
+        }
     }
 }
