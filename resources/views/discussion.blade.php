@@ -30,18 +30,4 @@
   </div>
   <button type="submit" class="btn btn-primary">Send message</button>
 </form>
- {{-- <h6>Write a new message:</h6>
- <div class="card border-light mb-3" style="max-width: 20rem;">
-   <strong>To:</strong> 
-   <select class="form-select" id="exampleSelect1">
-        <option>{{$discussion->userfrom->name}}
-        </option>
-      </select>
-   </div>
-  <div class="card-body">
-      <textarea class="form-control" id="exampleTextarea" rows="3">This is gonna be the message</textarea>
-  </div>
-  
-</div>
-<button type="button" class="btn btn-primary">Send</button> --}}
 @endsection

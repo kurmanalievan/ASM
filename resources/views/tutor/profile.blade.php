@@ -9,29 +9,28 @@
 </div>
 <h1>Published availability:</h1>
 <ul class="list-group">
+  @foreach($sessions as $session)
     <li class="list-group-item d-flex justify-content-between align-items-center">
-      Cras justo odio
-      {{-- <span class="badge bg-primary rounded-pill">14</span> --}}
+      <h5> <strong>Date: </strong>{{$session->date}}</h5>
+      <h4><strong>Time: </strong>{{$session->from}} - {{$session->to}}</h4>
     </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      Dapibus ac facilisis in
-      {{-- <span class="badge bg-primary rounded-pill">2</span> --}}
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      Morbi leo risus
-      {{-- <span class="badge bg-primary rounded-pill">1</span> --}}
-    </li>
+  @endforeach
   </ul>
-<div class="card bg-light mb-3">
-    <div class="card-body">
-      <h4 class="card-title">Enter Availability: </h4>
-      <h6 class="card-subtitle mb-2 text-muted">Math</h6>
-      <label for="datetimepicker">Select a Date and Time:</label>
-<input type="datetime-local" id="datetimepicker" name="datetimepicker">
-      <a href="" class="btn btn-primary">Add</a>
-      {{-- <a href="#" class="card-link">Another link</a> --}}
+  <form action="{{ route('profile.add') }}" method="post">
+    @csrf
+    <div class="card bg-light mb-3">
+        <div class="card-body">
+          <h4 class="card-title">Enter Availability: </h4>
+          <label for="date">Select a Date:</label>
+          <input type="date" id="date" name="date">
+          <label for="from">From:</label>
+          <input type="time" id="from" name="from">
+          <label for="to">To:</label>
+          <input type="time" id="to" name="to">
+          <button type="submit" class="btn btn-primary">Add</button>
+        </div>
     </div>
-</div>
+</form>
 
 
 
