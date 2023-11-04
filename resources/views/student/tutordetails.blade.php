@@ -24,46 +24,22 @@
         <img src="https://cdn0.xtramath.org/images/signin-student.svg" class="card-img-top">
       </div>
       <div class="col-md-4"> <!-- Adjust the column width as needed -->
+        <form action="{{ route('book') }}" method="post">
+          @csrf
         <div class="card-body">
           <h5 class="card-title text-muted" >Availability</h4>
-          {{-- <h6 class="card-subtitle mb-2 text-muted">Math</h6> --}}
-          {{-- <p>Month:  <select class="form-select" id="exampleSelect1">
-            <option>September</option>
-            <option>October</option>
-            <option>November</option>
-            <option>December</option>
-          </select></p>
-          <p>Weekday:  <select class="form-select" id="exampleSelect1">
-            <option>Monday</option>
-            <option>Tuesday</option>
-            <option>Wednesday</option>
-            <option>Thursday</option>
-            <option>Friday</option>
-          </select></p>
-          <p>Time:  <select class="form-select" id="exampleSelect1">
-            <option>2pm - 3pm</option>
-            <option>3pm - 4pm</option>
-            <option>4pm - 5pm</option>
-          </select></p> --}}
-          <li class="list-group-item list-group-item-success d-flex justify-content-between align-items-center">
-            October 2, 3pm
-            <a href="/tutors" class="btn btn-secondary">Book</a>
-          </li>
-          <li class="list-group-item list-group-item-success d-flex justify-content-between align-items-center">
-            September 20, 1pm
-            <a href="/tutors" class="btn btn-secondary">Book</a>
-          </li>
-          <li class="list-group-item list-group-item-success d-flex justify-content-between align-items-center">
-            October 2, 3pm
-            <a href="/tutors" class="btn btn-secondary">Book</a>
-          </li>
-          <li class="list-group-item list-group-item-success d-flex justify-content-between align-items-center">
-            September 20, 1pm
-            <a href="/tutors" class="btn btn-secondary">Book</a>
-          </li>
+            @foreach($sessions as $session)
+            <li class="list-group-item list-group-item-success d-flex justify-content-between align-items-center">
+              <p> <strong>Date: </strong>{{$session->date}}</p>
+              <p> <strong>Time: </strong>{{$session->from}} - {{ $session->to}}</p>
+              <input type="checkbox" name="booked_sessions[]" value="{{ $session->id }}">
+              <button type="submit" class="btn btn-primary">Book</button>
+            </li>
+           @endforeach
           {{-- <a href="/tutors" class="btn btn-primary">Book</a> --}}
           {{-- <a href="#" class="card-link">Another link</a> --}}
         </div>
+      </form>
       </div>
     </div>
   </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Session;
 use Illuminate\Http\Request;
 use App\Models\Tutor;
 use App\Models\User;
@@ -29,13 +30,25 @@ class TutorsController extends Controller
     }
     }
 
-  public function book(){
-    return view('student.book');
+  public function book(Request $request){
+    $selectedSession = $request->input('booked_sessions');
+    $authenticatedUserId = auth()->id();
+    // dd($selectedSession);
+    // if (is_array($selectedSession)) {
+      $count = count($selectedSession);
+      //  dd($selectedSession);
+      Session::whereIn('id', $selectedSession)
+      ->update(['student_id' => $authenticatedUserId]);
+    // } else {
+
+    // }
+        return redirect('/dashboard');
   }
 
   public function details($id){
     $tutor = User::where('role', 'tutor')->find($id);
-    return view('student.tutordetails', ['tutor' => $tutor]);
+    $sessions = Session::where('tutor_id', $id)->get();
+    return view('student.tutordetails', ['tutor' => $tutor, 'sessions' => $sessions]);
   }
   public function tutorslist(){
     $tutors = User::where('role', 'tutor')->get();

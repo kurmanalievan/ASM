@@ -59,6 +59,7 @@ Route::middleware(['user.role'])->group(function () {
     // Route::get('/tutordiscussion', [DiscussionsController::class, "tutordiscussion"])->middleware('auth');
     Route::post('/discussion/send-message', [DiscussionsController::class, "sendMessage"])->name('discussion.send_message');
     Route::post('/profile/add', [ProfileController::class, "add"])->name('profile.add');
+    Route::post('/tutorsdetails/book', [TutorsController::class, "book"])->name('book');
     // Add more routes specific to tutors or students as needed
 });
 
