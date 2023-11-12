@@ -9,10 +9,10 @@
 </div>
 <div class="card border-light mb-3" style="max-width: 20rem;">
     <div class="card-header">Create task</div>
-    <div class="card-body">
+    {{-- <div class="card-body">
         <label for="inputDefault">Assignee: </label>
             <input type="text" class="form-control" placeholder="Default input" id="inputDefault">
-       </div>
+       </div> --}}
    <div class="card-body">
     <label for="inputDefault">Title: </label>
         <input type="text" class="form-control" placeholder="Default input" id="inputDefault">

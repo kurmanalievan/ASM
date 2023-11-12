@@ -13,6 +13,11 @@
     <li class="list-group-item d-flex justify-content-between align-items-center">
       <h5> <strong>Date: </strong>{{$session->date}}</h5>
       <h4><strong>Time: </strong>{{$session->from}} - {{$session->to}}</h4>
+      <form action="{{ route('session.delete', $session->id) }}" method="post">
+        @csrf
+        @method('DELETE')
+      <button type="submit" class="btn btn-primary">Delete</button>
+    </form>
     </li>
   @endforeach
   </ul>

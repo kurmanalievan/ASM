@@ -67,6 +67,16 @@ class User extends Authenticatable
         $to = $this->discussionsTo();
         return $from->union($to)->orderBy('date')->get();
     }
+    public function discussionPair($id, $id2){
+        $l1 = $this->discussionsFrom()->where('from', $id)->where('to', $id2);
+        $l2 = $this->discussionsFrom()->where('from', $id2)->where('to', $id);
+        // dd($l1);
+        $l3 = $this->discussionsTo()->where('from', $id2)->where('to', $id);
+        $l4 = $this->discussionsTo()->where('from', $id)->where('to', $id2);
+
+        $all = ($l1)->union($l2)->union($l3)->union($l4);
+        return $all->orderBy('date')->get();
+    }
     public static function getTutors(){
         return self::where('role', 'tutor')->get();
     }
@@ -78,5 +88,5 @@ class User extends Authenticatable
     }
     public static function getRandomStudent(){
         return self::getStudents()->random();
-    }
+    }  
 }

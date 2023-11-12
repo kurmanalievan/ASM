@@ -15,9 +15,11 @@ class DiscussionsController extends Controller
             'discussions' => $discussions,
           ]);
     }
-    public function discussion(){
+    public function discussion($id, $id2){
         // dd(User::getTutors());
-        $discussions = Auth::user()->discussions();
+        $discussions = Auth::user()->discussionPair($id, $id2);
+        // $discussions = Auth::user()->discussionPair($id);
+        // dd($discussions);
         $users = User::all();
         // dd($users);
         return view('discussion', 
@@ -32,14 +34,7 @@ class DiscussionsController extends Controller
 
     public function sendMessage(Request $request)
 {
-    // Validate the request data
-    // $data = $request->validate([
-    //     'to' => 'required', // Add any necessary validation rules
-    //     'text' => 'required',
-    // ]);
-    // dd('here');
-    // Assuming you have a 'messages' table, create a new message
-    $to = $request->input('to'); // Get the recipient's ID from the form
+    $to = $request->input('to'); 
     $message = $request->input('message');
     // dd($to);
     $discussion = new Discussion();

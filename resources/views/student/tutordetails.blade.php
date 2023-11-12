@@ -24,22 +24,25 @@
         <img src="https://cdn0.xtramath.org/images/signin-student.svg" class="card-img-top">
       </div>
       <div class="col-md-4"> <!-- Adjust the column width as needed -->
-        <form action="{{ route('book') }}" method="post">
-          @csrf
+        {{-- <form action="{{ route('book') }}" method="post">
+          @csrf --}}
         <div class="card-body">
           <h5 class="card-title text-muted" >Availability</h4>
             @foreach($sessions as $session)
             <li class="list-group-item list-group-item-success d-flex justify-content-between align-items-center">
               <p> <strong>Date: </strong>{{$session->date}}</p>
               <p> <strong>Time: </strong>{{$session->from}} - {{ $session->to}}</p>
-              <input type="checkbox" name="booked_sessions[]" value="{{ $session->id }}">
-              <button type="submit" class="btn btn-primary">Book</button>
+              <input type="hidden" name="booked_sessions[]" value="{{ $session->id }}">
+              <form action="{{ route('book', $session->id) }}" method="post">
+                @csrf
+              <button type="submit" class="btn btn-primary">Cancel</button>
+            </form>
             </li>
            @endforeach
           {{-- <a href="/tutors" class="btn btn-primary">Book</a> --}}
           {{-- <a href="#" class="card-link">Another link</a> --}}
         </div>
-      </form>
+      {{-- </form> --}}
       </div>
     </div>
   </div>

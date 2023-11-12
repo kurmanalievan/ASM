@@ -35,4 +35,10 @@ class ProfileController extends Controller
         // dd($session);
         return redirect('/profile');
     }
+
+    public function delete($id){
+        $availability = Session::find($id);
+        $availability->delete();
+        return redirect('/profile');
+    }
 }

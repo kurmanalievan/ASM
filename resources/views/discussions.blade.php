@@ -11,9 +11,9 @@
   {{-- <h2>{{$projects}}</h2> --}}
   <div class="list-group">
 @foreach($discussions as $discussion)
-  <a href="/discussion" class="list-group-item list-group-item-action flex-column align-items-start">
+  <a href="{{ route('discussion', ['id' => $discussion->userfrom, 'id2' => $discussion->userto]) }}" class="list-group-item list-group-item-action flex-column align-items-start">
     <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">{{ $discussion['created_at']}}, {{$discussion->userfrom->name}}</h5>
+      <h5 class="mb-1">{{ $discussion['created_at']}}, <strong>From:</strong> {{$discussion->userfrom->name}} <strong>To:</strong> {{$discussion->userto->name}}</h5>
     </div>
     {{-- <p class="mb-1">{{ $discussion['text']}}</p> --}}
   </a>

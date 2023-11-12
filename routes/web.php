@@ -49,7 +49,7 @@ Route::middleware(['user.role'])->group(function () {
     Route::get('/tutors/{id}/book', [TutorsController::class, "book"])->middleware('auth');
     Route::get('/tutors/{id}/tutorsdetails', [TutorsController::class, "details"])->middleware('auth')->name('tutor.details');
     Route::get('/taskdetails/{id}', [TasksController::class, "details"])->middleware('auth')->name('task.details');
-    Route::get('/discussion', [DiscussionsController::class, "discussion"])->middleware('auth');
+    Route::get('/discussion/{id}/{id2}', [DiscussionsController::class, "discussion"])->middleware('auth')->name('discussion');
     // Route::get('/tutortasks', [TasksController::class, "tutortasks"])->middleware('auth');
     // Route::get('/profiletutor', [ProfileController::class, "tutor"])->middleware('auth');
     Route::get('/submitted', [TasksController::class, "tutortaskdetails"])->middleware('auth');
@@ -59,7 +59,10 @@ Route::middleware(['user.role'])->group(function () {
     // Route::get('/tutordiscussion', [DiscussionsController::class, "tutordiscussion"])->middleware('auth');
     Route::post('/discussion/send-message', [DiscussionsController::class, "sendMessage"])->name('discussion.send_message');
     Route::post('/profile/add', [ProfileController::class, "add"])->name('profile.add');
-    Route::post('/tutorsdetails/book', [TutorsController::class, "book"])->name('book');
+    Route::post('/tutorsdetails/book/{id}', [TutorsController::class, "book"])->name('book');
+    Route::delete('/profile/{id}', [ProfileController::class, "delete"])->name('session.delete');
+    Route::post('/details/{id}/cancel', [DashboardController::class, "cancel"])->name('session.cancel');
+
     // Add more routes specific to tutors or students as needed
 });
 

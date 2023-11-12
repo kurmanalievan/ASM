@@ -44,6 +44,15 @@ class DashboardController extends Controller
         );
         }
     }
+
+    public function cancel($id){
+       $authenticatedUserId = auth()->id();
+        // dd($id);
+         Session::where('id', $id)
+         ->update(['student_id' => 2]);
+        //  dd($id);
+         return redirect('/dashboard');
+    }
     // public function tutordashboard(){
     //     $sessions = Auth::user()->tutorsessions;
     //     return view('tutor.tutordashboard',

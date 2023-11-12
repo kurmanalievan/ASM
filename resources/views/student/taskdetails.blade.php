@@ -30,9 +30,13 @@
     </p>
   </div>
   <hr/>
+  <form action="/tasks" method="post" enctype="multipart/form-data">
+    @csrf
   <div class="form-group">
     <label for="formFile" class="form-label mt-4">Default file input example</label>
-    <input class="form-control" type="file" id="formFile">
+    <input class="form-control" type="file" id="formFile" name="task_file">
   </div>
-  <a href="/tasks" class="btn btn-primary">Submit</a>
+  {{-- <a href="/tasks" class="btn btn-primary">Submit</a> --}}
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 @endsection

@@ -30,14 +30,16 @@ class TutorsController extends Controller
     }
     }
 
-  public function book(Request $request){
-    $selectedSession = $request->input('booked_sessions');
+  public function book($id){
+    // $selectedSession = $request->input('booked_sessions');
     $authenticatedUserId = auth()->id();
     // dd($selectedSession);
     // if (is_array($selectedSession)) {
-      $count = count($selectedSession);
+      // $count = count($selectedSession);
       //  dd($selectedSession);
-      Session::whereIn('id', $selectedSession)
+     $session = Session::find($id);
+    //  dd($session);
+      Session::where('id', $id)
       ->update(['student_id' => $authenticatedUserId]);
     // } else {
 
