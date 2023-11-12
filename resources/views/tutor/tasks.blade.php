@@ -14,7 +14,7 @@
     @foreach($tasks as $task)
     <div class="list-group">
       <div class="list-group-item list-group-item-secondary d-flex justify-content-between align-items-center">
-        Cras justo odio
+       {{ $task->title}}
         <a href="{{ route('task.details', $task->id) }}" class="btn btn-info">Open</a>
       </div>
     </div>
