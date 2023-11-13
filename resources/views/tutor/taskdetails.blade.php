@@ -26,7 +26,7 @@
       </div>
     </div>
   </div>
-  <form class="edit-form">
+  {{-- <form class="edit-form"> --}}
     <div class="card mb-3">
         <div class="card-body">
           <h5 class="card-title"><strong>Wed. 2pm:</strong> Mary Robbie</h5>
@@ -48,8 +48,14 @@
            
       </div>
     <fieldset>
-    </div>
+    {{-- </div> --}}
       <a href="/tutortasks" class="btn btn-primary">Grade</a>
-    </fieldset>
-  </form>
+
+    <form action="{{ route('task.delete', $task->id) }}" method="post">
+      @csrf
+      @method('DELETE')
+      <button type="submit" class="btn btn-primary">Delete</button>
+    </form>
+  </fieldset>
+  {{-- </form> --}}
 @endsection

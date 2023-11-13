@@ -53,20 +53,7 @@
            </div>
       </div>
     <fieldset>
-      {{-- <legend>Details of the session</legend>       --}}
-      {{-- <div class="form-group">
-        <label for="exampleSelect1" class="form-label mt-4">Time:</label>
-        <select class="form-select" id="exampleSelect1">
-          <option>Wed. 3pm</option>
-          <option>Tue. 2pm</option>
-          <option>Fri. 4pm</option>
-        </select>
-      </div> --}}
-       {{-- <div>
-        <label for="exampleTextarea" class="form-label mt-4">Add a comment</label>
-        <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-       </div> --}}
-    </div>
+    {{-- </div> --}}
       {{-- <button type="submit" class="btn btn-primary">Edit</button> --}}
       <a href="/dashboard" class="btn btn-primary">Cancel</a>
       <a href="{{ route('assign', $session->id) }}"class="btn btn-primary">Assign task</a>

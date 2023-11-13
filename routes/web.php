@@ -61,6 +61,7 @@ Route::middleware(['user.role'])->group(function () {
     Route::post('/profile/add', [ProfileController::class, "add"])->name('profile.add');
     Route::post('/tutorsdetails/book/{id}', [TutorsController::class, "book"])->name('book');
     Route::delete('/profile/{id}', [ProfileController::class, "delete"])->name('session.delete');
+    Route::delete('/taskdetails/{id}', [TasksController::class, "delete"])->name('task.delete');
     Route::post('/details/{id}/cancel', [DashboardController::class, "cancel"])->name('session.cancel');
     Route::post('/assign/add/{id}', [TasksController::class, "add"])->name('assign.add');
     // Add more routes specific to tutors or students as needed
