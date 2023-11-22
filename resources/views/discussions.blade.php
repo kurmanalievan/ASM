@@ -18,5 +18,24 @@
     {{-- <p class="mb-1">{{ $discussion['text']}}</p> --}}
   </a>
 @endforeach
+<form action="{{ route('discussion.send_message') }}" method="post">
+  @csrf
+  <div class="card border-light mb-3" style="max-width: 20rem;">
+      <strong>To:</strong>
+      {{-- <select class="form-select" name="to">
+          <option value="{{$discussion->userto->id}}">{{$discussion->userto->name}}</option>
+          <!-- Add options for other users if applicable -->
+      </select> --}}
+      <select class="form-select" name="to">
+        @foreach($users as $user)
+            <option value="{{ $user->id }}">{{ $user->name }}</option>
+        @endforeach
+    </select>
+  </div>
+  <div class="card-body">
+      <textarea class="form-control" name="message" id="exampleTextarea" rows="3">This is gonna be the message</textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Send message</button>
+</form>
 </div>
 @endsection

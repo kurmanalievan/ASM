@@ -11,8 +11,10 @@ class DiscussionsController extends Controller
 {
     public function index(){
         $discussions = Auth::user()->discussions();
+        $users = User::all();
         return view('discussions', [
             'discussions' => $discussions,
+            'users' => $users
           ]);
     }
     public function discussion($id, $id2){
