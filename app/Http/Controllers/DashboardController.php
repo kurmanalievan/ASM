@@ -49,7 +49,7 @@ class DashboardController extends Controller
        $authenticatedUserId = auth()->id();
         // dd($id);
          Session::where('id', $id)
-         ->update(['student_id' => 2]);
+         ->update(['student_id' => null]);
         //  dd($id);
          return redirect('/dashboard');
     }

@@ -17,8 +17,8 @@ class DiscussionFactory extends Factory
     public function definition(): array
     {
         return [
-            'from' => fake()->numberBetween(1,15),
-            'to' => fake()->numberBetween(1,15),
+            'from' => fake()->numberBetween(1,14),
+            'to' => fake()->numberBetween(1,14),
             'date' => fake()->date(),
             'text' => fake()->text(),
         ];

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('date');
             $table->time('from');
             $table->time('to');
-            $table->integer('student_id');
+            $table->integer('student_id')->nullable();
             $table->timestamps();
         });
     }
