@@ -41,14 +41,16 @@
           </select></p>
         {{-- </div>
           <div class="card-body"> --}}
-            <label for="formFile" class="form-label mt-4">Upload file:</label>
+            {{-- <label for="formFile" class="form-label mt-4">Upload file:</label>
             <input class="form-control" type="file" id="formFile">
-          </div>
+          </div> --}}
         </div>
            
       </div>
     <fieldset>
     {{-- </div> --}}
+    <div><a href="{{ route('download.file', ['task_id' => $task->id]) }}">Download Student File</a></div>
+    
       <a href="/tutortasks" class="btn btn-primary">Grade</a>
 
     <form action="{{ route('task.delete', $task->id) }}" method="post">

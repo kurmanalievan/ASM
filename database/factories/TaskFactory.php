@@ -23,10 +23,10 @@ class TaskFactory extends Factory
             'instructions' => fake()->text(),
             'date' => fake()->date(),
             'points' => fake()->numberBetween(1,100),
-            'tutor_file' => fake()->filePath(),
-            'student_file' => fake()->filePath(),
-            'grade' => fake()->numberBetween(1,100),
-            'comments' => fake()->text(),
+            'tutor_file' => null, 
+            'student_file' => null,
+            'grade' => null,
+            'comments' => null,
         ];
     }
 }

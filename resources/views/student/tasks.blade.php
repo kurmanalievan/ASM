@@ -13,7 +13,7 @@
 
   <div class="card mb-3">
     <h4 class="card-header">Upcoming tasks</h4>
-@foreach($tasks as $task)
+@foreach($upcoming_tasks as $task)
     <div class="list-group">
       <div class="list-group-item list-group-item-secondary d-flex justify-content-between align-items-center">
         {{$task['title']}}
@@ -25,23 +25,13 @@
 
   <div class="card mb-3">
     <h4 class="card-header">Past tasks</h4>
+    @foreach($past_tasks as $past_task)
     <div class="list-group">
       <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-        Cras justo odio
-        <a href="/taskdetails" class="btn btn-success">Open</a>
+        {{$past_task['title']}}
+        <a href="{{ route('past.task.details', $task->id) }}" class="btn btn-success">Open</a>
       </div>
     </div>
-    <div class="list-group">
-      <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-        Cras justo odio
-        <a href="/taskdetails" class="btn btn-success">Open</a>
-      </div>
-    </div>
-    <div class="list-group">
-      <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-        Cras justo odio
-        <a href="/taskdetails" class="btn btn-success">Open</a>
-      </div>
-    </div>
+    @endforeach
   </div>
 @endsection

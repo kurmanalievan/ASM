@@ -11,6 +11,8 @@ class DiscussionsController extends Controller
 {
     public function index(){
         $discussions = Auth::user()->discussions();
+        $discussions = collect($discussions)->unique()->values()->all();
+        
         $users = User::all();
         return view('discussions', [
             'discussions' => $discussions,
@@ -18,14 +20,11 @@ class DiscussionsController extends Controller
           ]);
     }
     public function discussion($id, $id2){
-        // dd(User::getTutors());
         $discussions = Auth::user()->discussionPair($id, $id2);
-        // $discussions = Auth::user()->discussionPair($id);
-        // dd($discussions);
+        dd($discussions);
         $users = User::all();
-        // dd($users);
         return view('discussion', 
-    ['discussions' => $discussions, 'users' => $users]);
+       ['discussions' => $discussions, 'users' => $users]);
     }
     public function tutordiscussions(){
         return view('tutor.tutordiscussions');
@@ -48,4 +47,6 @@ class DiscussionsController extends Controller
     // dd($discussion);
     return redirect('/discussions');
 }
+
+
 }

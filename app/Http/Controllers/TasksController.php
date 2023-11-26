@@ -6,20 +6,24 @@ use App\Models\Session;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class TasksController extends Controller
 {
     public function index(){
         $role = auth()->user()->role;
-        $student_tasks = Auth::user()->studentTasks;
-        $tutor_tasks = Auth::user()->tutorTasks;
+        $upcoming_student_tasks = Auth::user()->upcomingStudentTasks;
+        $past_student_tasks = Auth::user()->pastStudentTasks;
+        
+        $tutor_submitted_tasks = Auth::user()->tutorSubmittedTasks;
+        $tutor_graded_tasks = Auth::user()->tutorGradedTasks;
     if ($role === 'tutor') {
         return view('tutor.tasks',
-        ['tasks' => $tutor_tasks,]
+        ['submitted_tasks' => $tutor_submitted_tasks, 'graded_tasks' => $tutor_graded_tasks]
     );
     } elseif ($role === 'student') {
         return view('student.tasks',
-        ['tasks' => $student_tasks,]
+        ['upcoming_tasks' => $upcoming_student_tasks, 'past_tasks' => $past_student_tasks]
     );
     }
     }
@@ -32,6 +36,16 @@ class TasksController extends Controller
         );
         } elseif ($role === 'student') {
             return view('student.taskdetails', ['task' => $task] );
+        }
+    }
+    public function past_task_details($id){
+        $role = auth()->user()->role;
+        $task = Task::find($id);
+        if ($role === 'tutor') {
+            return view('tutor.taskdetails', ['task' => $task]
+        );
+        } elseif ($role === 'student') {
+            return view('student.pasttaskdetails', ['task' => $task] );
         }
     }
    
@@ -78,5 +92,29 @@ class TasksController extends Controller
         $task = Task::find($id);
         $task->delete();
         return redirect('/tasks');
+    }
+
+    public function upload(Request $request, $task_id){
+        $task = Task::find($task_id);
+        if($request->hasFile('file')){
+            $file = $request->file('file');
+
+            $filePath = $file->store('student_files', 'public'); // Adjust directory as needed
+
+            // Update the session record with the file path
+            $task->update(['student_file' => $filePath]);
+        }
+        // dd('here');
+        return redirect('/tasks');
+    }
+
+    public function download_file($task_id){
+        $task = Task::find($task_id);
+        
+        if($task && $task->student_file){
+            $filePath = $task->student_file;
+            $fileName = basename($filePath);
+            return Storage::disk('public')->download($filePath, $fileName);
+        }
     }
 }

@@ -53,9 +53,22 @@ class User extends Authenticatable
     public function tutorTasks() {
         return $this->hasMany(Task::class, 'tutor_id');
     }
+    public function tutorSubmittedTasks() {
+        return $this->tutorTasks()->whereNotNull('student_file');
+    }
+    public function tutorGradedTasks() {
+        return $this->tutorTasks()->whereNotNull('grade');
+    }
     public function studentTasks() {
         return $this->hasMany(Task::class, 'student_id');
     }
+    public function upcomingStudentTasks(){
+        return $this->studentTasks()->where('student_file', null);
+    }
+    public function pastStudentTasks()
+{
+    return $this->studentTasks()->whereNotNull('student_file');
+}
     public function discussionsTo() {
         return $this->hasMany(Discussion::class, 'to');
     }
@@ -64,7 +77,10 @@ class User extends Authenticatable
     }
     public function discussions() {
         $from = $this->discussionsFrom();
+        $f = collect($from)->unique('from');
         $to = $this->discussionsTo();
+        $t = collect($to)->unique('to');
+        dd($from);
         return $from->union($to)->orderBy('date')->get();
     }
     public function discussionPair($id, $id2){

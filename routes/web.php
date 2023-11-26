@@ -49,6 +49,9 @@ Route::middleware(['user.role'])->group(function () {
     Route::get('/tutors/{id}/book', [TutorsController::class, "book"])->middleware('auth');
     Route::get('/tutors/{id}/tutorsdetails', [TutorsController::class, "details"])->middleware('auth')->name('tutor.details');
     Route::get('/taskdetails/{id}', [TasksController::class, "details"])->middleware('auth')->name('task.details');
+    Route::get('/pasttaskdetails/{id}', [TasksController::class, "past_task_details"])->middleware('auth')->name('past.task.details');
+    Route::get('/download/{task_id}', [TasksController::class, 'download_file'])->name('download.file');
+
     Route::get('/discussion/{id}/{id2}', [DiscussionsController::class, "discussion"])->middleware('auth')->name('discussion');
     // Route::get('/tutortasks', [TasksController::class, "tutortasks"])->middleware('auth');
     // Route::get('/profiletutor', [ProfileController::class, "tutor"])->middleware('auth');
@@ -64,6 +67,7 @@ Route::middleware(['user.role'])->group(function () {
     Route::delete('/taskdetails/{id}', [TasksController::class, "delete"])->name('task.delete');
     Route::post('/details/{id}/cancel', [DashboardController::class, "cancel"])->name('session.cancel');
     Route::post('/assign/add/{id}', [TasksController::class, "add"])->name('assign.add');
+    Route::post('/upload/{task_id}', [TasksController::class, 'upload'])->name('upload.file');
     // Add more routes specific to tutors or students as needed
 });
 

@@ -37,6 +37,6 @@
     <input class="form-control" type="file" id="formFile" name="file">
   </div>
   {{-- <a href="/tasks" class="btn btn-primary">Submit</a> --}}
-  <button type="submit" class="btn btn-primary">Submit</button>
+  {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
 </form>
 @endsection
