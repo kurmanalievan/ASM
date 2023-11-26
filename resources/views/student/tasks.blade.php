@@ -25,10 +25,10 @@
 
   <div class="card mb-3">
     <h4 class="card-header">Past tasks</h4>
-    @foreach($past_tasks as $past_task)
+    @foreach($past_tasks as $task)
     <div class="list-group">
       <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-        {{$past_task['title']}}
+        {{$task['title']}}
         <a href="{{ route('past.task.details', $task->id) }}" class="btn btn-success">Open</a>
       </div>
     </div>

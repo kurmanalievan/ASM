@@ -54,7 +54,7 @@ class User extends Authenticatable
         return $this->hasMany(Task::class, 'tutor_id');
     }
     public function tutorSubmittedTasks() {
-        return $this->tutorTasks()->whereNotNull('student_file');
+        return $this->tutorTasks()->whereNotNull('student_file')->where('grade', null);
     }
     public function tutorGradedTasks() {
         return $this->tutorTasks()->whereNotNull('grade');

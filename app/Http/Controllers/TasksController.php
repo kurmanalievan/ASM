@@ -117,4 +117,13 @@ class TasksController extends Controller
             return Storage::disk('public')->download($filePath, $fileName);
         }
     }
+
+    public function grade_task($task_id)
+    {
+        $task = Task::find($task_id);
+        $points = request()->input('points');
+        $task->update(['grade' => $points]);
+
+    return redirect('/tasks');
+   }
 }

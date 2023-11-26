@@ -21,37 +21,27 @@
             <strong>Points: </strong> {{ $task['points']}}
           </div>
           <div class="accordion-body">
-            <strong>Submitted file: </strong> there should be a submitted file here
+            <strong>Submitted file:  <div><a href="{{ route('download.file', ['task_id' => $task->id]) }}">Download</a></div>
           </div>
       </div>
     </div>
   </div>
   {{-- <form class="edit-form"> --}}
-    <div class="card mb-3">
+
+    <fieldset>
+    
+    <form action="{{ route('grade.task', ['task_id' => $task->id]) }}" method="POST">
+      @csrf
+      <div class="card mb-3">
         <div class="card-body">
           <h5 class="card-title"><strong>Wed. 2pm:</strong> Mary Robbie</h5>
           
-        {{-- </div>
-        <div class="card-body"> --}}
-          <p>Points:  <select class="form-select" id="exampleSelect1">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-          </select></p>
-        {{-- </div>
-          <div class="card-body"> --}}
-            {{-- <label for="formFile" class="form-label mt-4">Upload file:</label>
-            <input class="form-control" type="file" id="formFile">
-          </div> --}}
+          <p>Points:  <input type="text" name="points" class="form-control" placeholder="" id="inputDefault">
         </div>
            
       </div>
-    <fieldset>
-    {{-- </div> --}}
-    <div><a href="{{ route('download.file', ['task_id' => $task->id]) }}">Download Student File</a></div>
-    
-      <a href="/tutortasks" class="btn btn-primary">Grade</a>
+      <button type="submit" class="btn btn-primary">Grade</button>
+    </form>
 
     <form action="{{ route('task.delete', $task->id) }}" method="post">
       @csrf

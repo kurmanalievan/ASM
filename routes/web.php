@@ -51,6 +51,7 @@ Route::middleware(['user.role'])->group(function () {
     Route::get('/taskdetails/{id}', [TasksController::class, "details"])->middleware('auth')->name('task.details');
     Route::get('/pasttaskdetails/{id}', [TasksController::class, "past_task_details"])->middleware('auth')->name('past.task.details');
     Route::get('/download/{task_id}', [TasksController::class, 'download_file'])->name('download.file');
+    Route::post('/gradetask/{task_id}', [TasksController::class, 'grade_task'])->name('grade.task');
 
     Route::get('/discussion/{id}/{id2}', [DiscussionsController::class, "discussion"])->middleware('auth')->name('discussion');
     // Route::get('/tutortasks', [TasksController::class, "tutortasks"])->middleware('auth');

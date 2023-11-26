@@ -10,6 +10,7 @@ class Task extends Model
     use HasFactory;
     protected $fillable = [
         'student_file', 
+        'grade',
     ];
 
     public function user()
