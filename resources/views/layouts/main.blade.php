@@ -34,19 +34,12 @@
     
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          {{-- @can('isStudent') --}}
           <a class="nav-item nav-link" href="/dashboard">Dashboard</a>
           <a class="nav-item nav-link" href="/tutors">Tutors list</a>
-          {{-- @endcan --}}
-          <!-- <a class="nav-item nav-link" href="transposer.html">Schedule</a> -->
           <a class="nav-item nav-link" href="/discussions">Discussions</a>
           <a class="nav-item nav-link" href="/tasks">Assignments</a>
-          <!-- <a class="nav-item nav-link" href="about.html">Resource Sharing</a> -->
-          {{-- <a class="nav-item nav-link" href="/support">Language Support</a> --}}
-          <ul><a class="icon"href="/support"><i class="fas fa-globe"></i></a></ul>
+          {{-- <ul><a class="icon"href="/support"><i class="fas fa-globe"></i></a></ul> --}}
           <ul><a class="icon" href="/profile"><i class="fas fa-user"></i></a></ul>
-          {{-- s<a class="nav-item nav-link" href="/profile">My Profile</a> --}}
-          {{-- <a class="nav-link" href="{{ route('login') }}">Login</a> --}}
         </div>
         <ul class="navbar-nav ms-auto">
           <!-- Authentication Links -->

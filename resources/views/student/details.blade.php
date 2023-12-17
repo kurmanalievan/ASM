@@ -30,28 +30,6 @@
           <h4 class="card-title"><strong>Date: </strong> {{$session->date}}</h4>
           <h6 class="card-subtitle text-muted"> You can cancel the session anytime below</h6>
         </div>
-        {{-- <img src="https://cdn0.xtramath.org/images/signin-student.svg" class="rounded-image" alt="Rounded Image"> --}}
-        {{-- <div class="card-body"> --}}
-          {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
-        {{-- </div> --}}
-        {{-- <div class="form-group"> --}}
-            {{-- <label for="exampleSelect1" class="form-label mt-4">Time:
-              <select class="form-select" id="exampleSelect1">
-                <option>Wed. 3pm</option>
-                <option>Tue. 2pm</option>
-                <option>Fri. 4pm</option>
-              </select>
-            </label> --}}
-            {{-- <select class="form-select" id="exampleSelect1">
-              <option>Wed. 3pm</option>
-              <option>Tue. 2pm</option>
-              <option>Fri. 4pm</option>
-            </select> --}}
-          {{-- </div> --}}
-          {{-- <div>
-            <label for="exampleTextarea" class="form-label mt-4">Add a comment</label>
-            <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-           </div> --}}
       </div>
     <fieldset>
     </div>

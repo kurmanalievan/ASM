@@ -29,19 +29,6 @@
   {{-- <form class="edit-form"> --}}
 
     <fieldset>
-    
-    <form action="{{ route('grade.task', ['task_id' => $task->id]) }}" method="POST">
-      @csrf
-      <div class="card mb-3">
-        <div class="card-body">
-          <h5 class="card-title"><strong>Wed. 2pm:</strong> Mary Robbie</h5>
-          
-          <p>Points:  <input type="text" name="points" class="form-control" placeholder="" id="inputDefault">
-        </div>
-           
-      </div>
-      <button type="submit" class="btn btn-primary">Grade</button>
-    </form>
 
     <form action="{{ route('task.delete', $task->id) }}" method="post">
       @csrf

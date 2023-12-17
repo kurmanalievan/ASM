@@ -21,8 +21,8 @@ class SessionSeeder extends Seeder
             $student = User::getRandomStudent();
             Session::factory([
                 'tutor_id' => $tutor->id,
-                // 'student_id' => rand(0,1) === 1 ? $student->id : null,
-                'student_id' => $student->id,
+                'student_id' => rand(0,1) === 1 ? $student->id : null,
+                // 'student_id' => $student->id,
             ])->create();
         }
         // Session::factory(15)->create()->each(function());

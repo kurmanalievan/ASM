@@ -28,15 +28,18 @@
     <p>
         {{ $task['instructions']}}
     </p>
+    <div class="accordion-body">
+      <strong>Submitted file:  <div><a href="{{ route('download.file', ['task_id' => $task->id]) }}">Download</a></div>
+    </div>
   </div>
   <hr/>
-  <form action="{{ route('upload.file', ['task_id' => $task->id]) }}" method="post" enctype="multipart/form-data">
+  {{-- <form action="{{ route('upload.file', ['task_id' => $task->id]) }}" method="post" enctype="multipart/form-data">
     @csrf
   <div class="form-group">
     <label for="formFile" class="form-label mt-4">Default file input example</label>
     <input class="form-control" type="file" id="formFile" name="file">
   </div>
   {{-- <a href="/tasks" class="btn btn-primary">Submit</a> --}}
-  {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
-</form>
+  {{-- <button type="submit" class="btn btn-primary">Submit</button> --
+</form> --}}
 @endsection

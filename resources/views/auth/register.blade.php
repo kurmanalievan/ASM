@@ -61,6 +61,35 @@
                             </div>
                         </div>
 
+                        <!-- Existing form code... -->
+
+<div class="row mb-3">
+    <label class="col-md-4 col-form-label text-md-end">{{ __('Role') }}</label>
+
+    <div class="col-md-6">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="role" id="student" value="student" {{ old('role') == 'student' ? 'checked' : '' }}>
+            <label class="form-check-label" for="student">
+                {{ __('Student') }}
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="role" id="tutor" value="tutor" {{ old('role') == 'tutor' ? 'checked' : '' }}>
+            <label class="form-check-label" for="tutor">
+                {{ __('Tutor') }}
+            </label>
+        </div>
+        @error('role')
+            <span class="invalid-feedback d-block" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+    </div>
+</div>
+
+<!-- Rest of your existing form code... -->
+
+
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

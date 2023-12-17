@@ -74,13 +74,13 @@ class TasksController extends Controller
         $new_task->instructions = $instructions;
         $new_task->student_id = $session->student_id;
         $new_task->tutor_id = $session->tutor_id;
-        $new_task->tutor_file = '/private/var/folders/6p/0_643y_91m7bhjjb79yppfr00000gn/T/fakerOXIhDK';
-        $new_task->student_file = "/private/var/folders/6p/0_643y_91m7bhjjb79yppfr00000gn/T/fakerOXIhDK";
-        $new_task->grade = 20;
-        $new_task->comments = 'good';
+        $new_task->tutor_file = null;
+        $new_task->student_file = null;
+        $new_task->grade = null;
+        $new_task->comments = null;
         $new_task->save();
         // dd($new_task);
-        return redirect('/tasks');
+        return redirect('/dashboard');
         
     }
     // public function delete($id){

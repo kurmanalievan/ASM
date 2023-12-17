@@ -4,8 +4,8 @@
 @section('content')
   <!-- main page -->
   <div class="bg-light p-5 rounded">
-    <h1 class="display-4">See the details of {tutor}</h1>
-    <p class="lead">This is a simple hero unit, a simple Jumbotron-style component for calling extra attention to featured content or information.</p>
+    <h1 class="display-4">See the details of {{$tutor['name']}}</h1>
+    {{-- <p class="lead">This is a simple hero unit, a simple Jumbotron-style component for calling extra attention to featured content or information.</p> --}}
     <hr class="my-4">
 </div>
 
@@ -35,7 +35,7 @@
               <input type="hidden" name="booked_sessions[]" value="{{ $session->id }}">
               <form action="{{ route('book', $session->id) }}" method="post">
                 @csrf
-              <button type="submit" class="btn btn-primary">Cancel</button>
+              <button type="submit" class="btn btn-primary">Book</button>
             </form>
             </li>
            @endforeach

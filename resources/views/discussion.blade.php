@@ -14,11 +14,13 @@
  <form action="{{ route('discussion.send_message') }}" method="post">
   @csrf
   <div class="card border-light mb-3" style="max-width: 20rem;">
-      <strong>To:</strong>
-      <select class="form-select" name="to">
+      {{-- <strong>To: {{$discussion->userto->name}} </strong> --}}
+      <select style="display: none;" class="form-select"  name="to">
           <option value="{{$discussion->userto->id}}">{{$discussion->userto->name}}</option>
-          <!-- Add options for other users if applicable -->
       </select>
+      <select style="display: none;" class="form-select"  name="from">
+        <option value="{{$discussion->userfrom->id}}">{{$discussion->userfrom->name}}</option>
+    </select>
       {{-- <select class="form-select" name="to">
         {{-- @foreach($users as $user)
             <option value="{{ $user->id }}">{{ $user->name }}</option>
@@ -30,4 +32,5 @@
   </div>
   <button type="submit" class="btn btn-primary">Send message</button>
 </form>
+<a href="/discussions" class="btn btn-success">Go back</a>
 @endsection
