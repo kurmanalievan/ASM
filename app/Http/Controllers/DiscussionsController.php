@@ -6,6 +6,7 @@ use App\Models\Discussion;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class DiscussionsController extends Controller
 {
@@ -35,6 +36,17 @@ class DiscussionsController extends Controller
 
     public function sendMessage(Request $request)
 {
+    $validator = Validator::make($request->all(), [
+        'to' => 'required', 
+        'message' => 'required|min:1', 
+    ], [
+        'message.required' => 'Please enter a message.', 
+        'message.min' => 'The message must have at least one character.', 
+    ]);
+    
+    if ($validator->fails()) {
+        return redirect()->back()->withErrors($validator)->withInput();
+    }
     $to = $request->input('to'); 
     $from = $request->input('from'); 
     $message = $request->input('message');
