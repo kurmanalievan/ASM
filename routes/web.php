@@ -62,6 +62,7 @@ Route::middleware(['user.role'])->group(function () {
     // Route::get('/tutordis\cussions', [DiscussionsController::class, "tutordiscussions"])->middleware('auth');
     // Route::get('/tutordiscussion', [DiscussionsController::class, "tutordiscussion"])->middleware('auth');
     Route::post('/discussion/send-message', [DiscussionsController::class, "sendMessage"])->name('discussion.send_message');
+    Route::post('/discussion/send-message-indiv', [DiscussionsController::class, "sendMessageIndiv"])->name('discussion.send_message_indiv');
     Route::post('/profile/add', [ProfileController::class, "add"])->name('profile.add');
     Route::post('/tutorsdetails/book/{id}', [TutorsController::class, "book"])->name('book');
     Route::delete('/profile/{id}', [ProfileController::class, "delete"])->name('session.delete');

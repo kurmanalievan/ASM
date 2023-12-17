@@ -50,16 +50,42 @@ class DiscussionsController extends Controller
     $to = $request->input('to'); 
     $from = $request->input('from'); 
     $message = $request->input('message');
-    // dd($from);
     $discussion = new Discussion();
     $discussion->from = auth()->id();
-    // $discussion->to = auth()->id() === $from ? $to : $from;
     $discussion->to = $to;
-    // dd($discussion);
     $discussion->date = now();
     $discussion->text = $message;
     $discussion->save();
     return back();
   }
+  public function sendMessageIndiv(Request $request)
+  {
+      $validator = Validator::make($request->all(), [
+          'to' => 'required', 
+          'message' => 'required|min:1', 
+      ], [
+          'message.required' => 'Please enter a message.', 
+          'message.min' => 'The message must have at least one character.', 
+      ]);
+      
+      if ($validator->fails()) {
+          return redirect()->back()->withErrors($validator)->withInput();
+      }
+      $to = $request->input('to'); 
+      $from = $request->input('from'); 
+      $message = $request->input('message');
+      $discussion = new Discussion();
+     if($from == auth()->id()){
+        $discussion->from = auth()->id();
+        $discussion->to = $to;
+     }else{
+        $discussion->to = auth()->id();
+        $discussion->to = $from;
+     }
+      $discussion->date = now();
+      $discussion->text = $message;
+      $discussion->save();
+      return back();
+    }
  
 }

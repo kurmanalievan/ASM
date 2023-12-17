@@ -11,7 +11,7 @@
 </div>
 @endforeach
  <hr/>
- <form action="{{ route('discussion.send_message') }}" method="post">
+ <form action="{{ route('discussion.send_message_indiv') }}" method="post">
   @csrf
   <div class="card border-light mb-3" style="max-width: 20rem;">
       {{-- <strong>To: {{$discussion->userto->name}} </strong> --}}
