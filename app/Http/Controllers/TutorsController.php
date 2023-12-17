@@ -17,7 +17,7 @@ class TutorsController extends Controller
         // $tutors = User
         // $student_tutors = Auth::user()->studentsessions;
         // $tutor_tutors = Auth::user()->tutorsessions;
-      $role = auth()->user()->role;
+        $role = auth()->user()->role;
 
     if ($role === 'tutor') {
         return view('tutor.tutors',
@@ -49,9 +49,13 @@ class TutorsController extends Controller
 
   public function details($id){
     $tutor = User::where('role', 'tutor')->find($id);
-    $sessions = Session::where('tutor_id', $id)->get();
+    // $sessions = Session::where('tutor_id', $id)->get();
+    $sessions = Session::where('tutor_id', $id)
+                   ->whereNull('student_id')
+                   ->get();
     return view('student.tutordetails', ['tutor' => $tutor, 'sessions' => $sessions]);
   }
+
   public function tutorslist(){
     $tutors = User::where('role', 'tutor')->get();
     return view('tutor.tutorslist',
