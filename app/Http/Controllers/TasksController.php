@@ -7,6 +7,7 @@ use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class TasksController extends Controller
 {
@@ -83,11 +84,6 @@ class TasksController extends Controller
         return redirect('/dashboard');
         
     }
-    // public function delete($id){
-    //     $availability = Session::find($id);
-    //     $availability->delete();
-    //     return redirect('/profile');
-    // }
     public function delete($id){
         $task = Task::find($id);
         $task->delete();
@@ -96,15 +92,17 @@ class TasksController extends Controller
 
     public function upload(Request $request, $task_id){
         $task = Task::find($task_id);
+        $validator = Validator::make($request->all(), [
+            'file' => 'required|file', 
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
         if($request->hasFile('file')){
             $file = $request->file('file');
-
-            $filePath = $file->store('student_files', 'public'); // Adjust directory as needed
-
-            // Update the session record with the file path
+            $filePath = $file->store('student_files', 'public'); 
             $task->update(['student_file' => $filePath]);
         }
-        // dd('here');
         return redirect('/tasks');
     }
 
