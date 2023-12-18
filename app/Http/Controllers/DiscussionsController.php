@@ -79,7 +79,7 @@ class DiscussionsController extends Controller
         $discussion->from = auth()->id();
         $discussion->to = $to;
      }else{
-        $discussion->to = auth()->id();
+        $discussion->from = auth()->id();
         $discussion->to = $from;
      }
       $discussion->date = now();

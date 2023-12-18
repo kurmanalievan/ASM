@@ -30,7 +30,7 @@ class ProfileController extends Controller
         $session->date = $date;
         $session->from = $from;
         $session->to = $to;
-        $session->student_id = 3;
+        $session->student_id = null;
         $session->save();
         // dd($session);
         return redirect('/profile');
