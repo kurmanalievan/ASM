@@ -18,7 +18,8 @@
   <hr class="my-4">
 </div>
 {{-- <h1>Upcoming Sessions</h1> --}}
-@foreach($sessions as $session)
+{{-- @foreach($sessions as $session) --}}
+@forelse($sessions as $session)
   <div class="card">
     <div class="card-body">
       <h4 class="card-title">{{ $session['date']}}</h4>
@@ -38,8 +39,14 @@
       {{-- <a href="#" class="card-link">Another link</a> --}}
     </div>
 </div>
-@endforeach
+{{-- @endforeach --}}
     <hr/>
+@empty
+    <div>
+        <h1 class="display-4">Nothing to show</h1>
+    </div>
+    @endforelse
+  {{-- @endif --}}
    {{-- <h1>Last Session</h1> --}}
 
 @endsection

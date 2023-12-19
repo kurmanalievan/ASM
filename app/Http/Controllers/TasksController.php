@@ -43,7 +43,7 @@ class TasksController extends Controller
         $role = auth()->user()->role;
         $task = Task::find($id);
         if ($role === 'tutor') {
-            return view('tutor.taskdetails', ['task' => $task]
+            return view('tutor.taskdetailsgraded', ['task' => $task]
         );
         } elseif ($role === 'student') {
             return view('student.pasttaskdetails', ['task' => $task] );

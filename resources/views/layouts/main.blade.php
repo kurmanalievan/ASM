@@ -39,7 +39,8 @@
           <a class="nav-item nav-link" href="/discussions">Discussions</a>
           <a class="nav-item nav-link" href="/tasks">Assignments</a>
           {{-- <ul><a class="icon"href="/support"><i class="fas fa-globe"></i></a></ul> --}}
-          <ul><a class="icon" href="/profile"><i class="fas fa-user"></i></a></ul>
+          {{-- <ul><a class="icon" href="/profile"><i class="fas fa-user"></i></a></ul> --}}
+          <ul><a class="nav-item nav-link" href="/profile"><i class="fas fa-user"></i></a></ul>
         </div>
         <ul class="navbar-nav ms-auto">
           <!-- Authentication Links -->

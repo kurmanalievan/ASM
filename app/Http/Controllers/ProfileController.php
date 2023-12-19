@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ProfileController extends Controller
 {
@@ -21,8 +22,15 @@ class ProfileController extends Controller
 
     public function add(Request $request)
     {
-        // dd('hey');
-        $to = $request->input('to'); // Get the recipient's ID from the form
+        $validator = Validator::make($request->all(), [
+            'to' => 'required',
+            'from' => 'required',
+            'date' => 'required|date', 
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        $to = $request->input('to'); 
         $from = $request->input('from');
         $date = $request->input('date');
         $session = new Session();

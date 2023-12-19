@@ -18,7 +18,7 @@
 @section('content')
   <!-- main page -->
   <div class="bg-light p-5 rounded">
-    <h1 class="display-4">Details of the upcoming session with Tutor</h1>
+    <h1 class="display-4">Details of the upcoming session with a student</h1>
     <p class="lead">This is a simple hero unit, a simple Jumbotron-style component for calling extra attention to featured content or information.</p>
     <hr class="my-4">
 </div>
@@ -51,9 +51,9 @@
     </fieldset>
   </form> --}}
 
-
+  @if (isset($session->student))
   <div class="card mb-3">
-    <h3 class="card-header">Session with: <strong> {{ $session->tutor->name}} </strong> </h3>
+    <h3 class="card-header">Session with: <strong> {{ $session->student->name}} </strong> </h3>
     <div class="card-body">
       <h4 class="card-title"><strong>Time: </strong> {{$session->from}} - {{ $session->to}}</h4>
       <h4 class="card-title"><strong>Date: </strong> {{$session->date}}</h4>
@@ -69,4 +69,9 @@
 </form>
  <a href="{{ route('assign', $session->id) }}"class="btn btn-primary">Assign task</a>
 </fieldset>
+  @else
+      <div>
+          <h1 class="display-4">Nothing to show</h1>
+      </div>
+    @endif
 @endsection

@@ -28,7 +28,8 @@
           @csrf --}}
         <div class="card-body">
           <h5 class="card-title text-muted" >Availability</h4>
-            @foreach($sessions as $session)
+           
+            @forelse($sessions as $session)
             <li class="list-group-item list-group-item-success d-flex justify-content-between align-items-center">
               <p> <strong>Date: </strong>{{$session->date}}</p>
               <p> <strong>Time: </strong>{{$session->from}} - {{ $session->to}}</p>
@@ -38,7 +39,11 @@
               <button type="submit" class="btn btn-primary">Book</button>
             </form>
             </li>
-           @endforeach
+            @empty
+              <div>
+                  <h5>Nothing to show</h5>
+              </div>
+              @endforelse
           {{-- <a href="/tutors" class="btn btn-primary">Book</a> --}}
           {{-- <a href="#" class="card-link">Another link</a> --}}
         </div>

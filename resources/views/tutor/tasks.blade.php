@@ -26,7 +26,7 @@
     <div class="list-group">
       <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
         {{ $task->title}}
-        <a href="{{ route('task.details', $task->id) }}" class="btn btn-success">Open</a>
+        <a href="{{ route('past.task.details', $task->id) }}" class="btn btn-success">Open</a>
       </div>
     </div>
     @endforeach
