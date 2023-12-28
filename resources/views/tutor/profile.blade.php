@@ -2,11 +2,17 @@
 
 @section('title', 'My Profile')
 @section('content')
+<style>
+  .card{
+    margin: 20px;
+  }
+</style>
   <div class="bg-light p-5 rounded">
     <h1 class="display-4">Tutor's profile</h1>
-    <p class="lead">This is a simple hero unit, a simple Jumbotron-style component for calling extra attention to featured content or information.</p>
+    <p class="lead">Here the tutor can publish new availabilities.</p>
     <hr class="my-4">
 </div>
+<div class="card text-light bg-info mb-3">
 <h1>Published availability:</h1>
 <ul class="list-group">
   @foreach($sessions as $session)
@@ -37,6 +43,6 @@
     </div>
 </form>
 
-
+</div>
 
 @endsection

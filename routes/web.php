@@ -22,25 +22,11 @@ use App\Http\Controllers\DashboardController;
 Route::get('/', function () {
     return view('welcome');
 });
-// Route::get('/tutors', function () {
-//     return view('tutors.tutors');
-// });
 Route::middleware(['user.role'])->group(function () {
 
-    // Route::group(['middleware' => 'user.role:tutor'], function () {
-    //     Route::get('/tutor/dashboard', [DashboardController::class, "tutorr"])->name('tutor.dashboard');
-    // });
-
-    // Route::group(['middleware' => 'user.role:student'], function () {
-    //     Route::get('/student/dashboard', [DashboardController::class, "index"])->name('student.dashboard');
-    // });
-
-
-    // Define your routes here that require role-based views
     Route::get('/tutors', [TutorsController::class, "index"])->middleware('auth'); //->middleware('can:isStudent');
     Route::get('/discussions', [DiscussionsController::class, "index"])->middleware('auth');
-    // Route::get('/tutor', [ProfileController::class, "tutor"])->middleware('auth');
-    // Route::get('/tutorslist', [TutorsController::class, "tutorslist"])->middleware('auth');
+
     Route::get('/tasks', [TasksController::class, "index"])->middleware('auth');
     Route::get('/support', [LanguageController::class, "index"])->middleware('auth');
     Route::get('/profile', [ProfileController::class, "index"])->middleware('auth');
@@ -54,13 +40,9 @@ Route::middleware(['user.role'])->group(function () {
     Route::post('/gradetask/{task_id}', [TasksController::class, 'grade_task'])->name('grade.task');
 
     Route::get('/discussion/{id}/{id2}', [DiscussionsController::class, "discussion"])->middleware('auth')->name('discussion');
-    // Route::get('/tutortasks', [TasksController::class, "tutortasks"])->middleware('auth');
-    // Route::get('/profiletutor', [ProfileController::class, "tutor"])->middleware('auth');
+
     Route::get('/submitted', [TasksController::class, "tutortaskdetails"])->middleware('auth');
     Route::get('/assign/{id}', [TasksController::class, "tutortaskassign"])->middleware('auth')->name('assign');
-    // Route::get('/tutordashboard', [DashboardController::class, "tutordashboard"])->middleware('auth');
-    // Route::get('/tutordis\cussions', [DiscussionsController::class, "tutordiscussions"])->middleware('auth');
-    // Route::get('/tutordiscussion', [DiscussionsController::class, "tutordiscussion"])->middleware('auth');
     Route::post('/discussion/send-message', [DiscussionsController::class, "sendMessage"])->name('discussion.send_message');
     Route::post('/discussion/send-message-indiv', [DiscussionsController::class, "sendMessageIndiv"])->name('discussion.send_message_indiv');
     Route::post('/profile/add', [ProfileController::class, "add"])->name('profile.add');
@@ -70,7 +52,6 @@ Route::middleware(['user.role'])->group(function () {
     Route::post('/details/{id}/cancel', [DashboardController::class, "cancel"])->name('session.cancel');
     Route::post('/assign/add/{id}', [TasksController::class, "add"])->name('assign.add');
     Route::post('/upload/{task_id}', [TasksController::class, 'upload'])->name('upload.file');
-    // Add more routes specific to tutors or students as needed
 });
 
 Auth::routes();

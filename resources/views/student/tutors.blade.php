@@ -2,41 +2,21 @@
 
 @section('title', 'Tutors')
 @section('content')
-  <!-- main page -->
+<style>
+  .card {
+  margin: 20px; 
+  width: 100%; 
+  padding: 15px;
+}
+</style>
   <div class="bg-light p-5 rounded">
-    <h1 class="display-4">Students view</h1>
-    <p class="lead">This is a simple hero unit, a simple Jumbotron-style component for calling extra attention to featured content or information.</p>
+    <h1 class="display-4">List of tutors</h1>
+    <p class="lead">Here you can find the list of all tutors. You can check the details of the particular tutor.</p>
     <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
 </div>
 
-  {{-- @foreach ($tutors as $tutor)
-  <div class="col-sm-3 my-3">
-    <div class="card h-100">
-      <img src="public/user.png" class="card-img-top">
-      <div class="card-body">
-        <h5 class="card-title">{{$tutor["name"]}}</h5>
-        <p class="card-text">{{$tutor["description"]}}</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      
-        <a href="/tutors/{{ $tutor["id"] }}/book" class="btn btn-primary">Book Time</a>
-      </div>
-    </div>
-  </div>
-@endforeach --}}
-{{-- 
-<div class="card">
-  <div class="card-body">
-    <img src="https://cdn0.xtramath.org/images/signin-student.svg" class="card-img-top">
-    <h4 class="card-title">John Smith</h4>
-    <h6 class="card-subtitle mb-2 text-muted">Programming</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Details</a>
-  </div>
-</div> --}}
 @foreach($tutors as $tutor)
-<div class="card">
+<div class="card border-success mb-3">
   <div class="card-body">
 <div class="container">
   <div class="row">
@@ -46,9 +26,9 @@
     <div class="col-md-8"> 
       <div class="card-body">
         <h4 class="card-title">{{ $tutor['name']}}</h4>
-        <h6 class="card-subtitle mb-2 text-muted">Programming</h6>
-        <p><em>"I've always loved programming"</em></p>
-        <a href="{{ route('tutor.details', $tutor->id) }}" class="card-link">Details</a>
+        <h6 class="card-subtitle mb-2 text-muted">Tutor</h6>
+        <p><em>See published availabilities of the tutor below</em></p>
+        <a href="{{ route('tutor.details', $tutor->id) }}" class="btn btn-primary">Details</a>
       </div>
     </div>
   </div>

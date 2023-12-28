@@ -4,7 +4,7 @@
 @section('content')
 <style>
     hr {
-      width: 80%; 
+      width: 100%; 
     }
     h1 {
         margin-top: 5%;
@@ -17,7 +17,14 @@
         margin-left: 10%;
         width: 80%;
     }
+    .card{
+      margin: 20px;
+    }
+    .accordion-body{
+      margin-left: 10%;
+    }
   </style>
+  <div class="card border-secondary mb-3" style="max-width: 100rem;">
   <h1 class="text-left">{{ $task['title']}}</h1>
   <hr />
   <h4 class="text-left"><strong>Due:</strong> {{ $task['date']}}</h4>
@@ -32,7 +39,6 @@
       <strong>Submitted file:  <div><a href="{{ route('download.file', ['task_id' => $task->id]) }}">Download</a></div>
     </div>
   </div>
-  <hr/>
   {{-- <form action="{{ route('upload.file', ['task_id' => $task->id]) }}" method="post" enctype="multipart/form-data">
     @csrf
   <div class="form-group">
@@ -42,4 +48,5 @@
   {{-- <a href="/tasks" class="btn btn-primary">Submit</a> --}}
   {{-- <button type="submit" class="btn btn-primary">Submit</button> --
 </form> --}}
+</div>
 @endsection

@@ -2,14 +2,18 @@
 
 @section('title', 'Tasks')
 @section('content')
-  <!-- main page -->
+<style>
+  .card{
+    margin: 20px;
+  }
+</style>
   <div class="bg-light p-5 rounded">
-    <h1 class="display-4">Tutor's view of the assignments section</h1>
-    <p class="lead">This is a simple hero unit, a simple Jumbotron-style component for calling extra attention to featured content or information.</p>
+    <h1 class="display-4">Assignments Dashboard</h1>
+    <p class="lead">Here you can see the submitted tasks by students. See the details and grade the assignments.</p>
     <hr class="my-4">
 </div>
 
-  <div class="card mb-3">
+  <div class="card text-white bg-warning mb-3">
     <h4 class="card-header">Submitted tasks</h4>
     @foreach($submitted_tasks as $task)
     <div class="list-group">
@@ -19,8 +23,9 @@
       </div>
     </div>
     @endforeach
-
+  </div>
   {{-- <div class="card mb-3"> --}}
+    <div class="card text-white bg-success mb-3">
     <h4 class="card-header">Graded tasks</h4>
     @foreach($graded_tasks as $task)
     <div class="list-group">
@@ -30,6 +35,5 @@
       </div>
     </div>
     @endforeach
-  {{-- </div> --}}
-  {{-- <a href="/assign" class="btn btn-primary">Assign new task</a> --}}
+  </div>
 @endsection

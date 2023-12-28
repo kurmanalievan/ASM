@@ -14,28 +14,20 @@
 </style>
 <div class="bg-light p-5 rounded">
   <h1 class="display-4">Student's Dashboard</h1>
-  <p class="lead">This is a simple hero unit, a simple Jumbotron-style component for calling extra attention to featured content or information.</p>
+  <p class="lead">This is a student's Dashboard. Upcoming booked sessions with tutors appear here.</p>
   <hr class="my-4">
 </div>
 @forelse($sessions as $session)
- {{-- @foreach($sessions as $session) --}}
-  <div class="card">
+  <div class="card text-white bg-success mb-3" >
     <div class="card-body">
       <h4 class="card-title">{{ $session['date'] }}</h4>
-      {{-- <h6 class="card-subtitle mb-2 text-muted">Math</h6> --}}
-      {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">Time:</label>
         <div class="col-sm-10">
-          <input type="text" readonly="" class="form-control-plaintext" id="staticEmail" value={{ $session['date'] }}>
+          <input type="text" readonly="" class="form-control-plaintext" id="staticEmail" value="{{ $session['from']}} - {{ $session['to']}} ">
         </div>
-        {{-- <label for="staticEmail" class="col-sm-2 col-form-label">Tutor:</label> --}}
-        {{-- <div class="col-sm-10">
-          <input type="text" readonly="" class="form-control-plaintext" id="staticEmail" value={{ $session['date'] }}>
-        </div> --}}
       </div>
       <a href="{{ route('session.details', $session->id) }}" class="btn btn-primary">Open</a>
-      {{-- <a href="#" class="card-link">Another link</a> --}}
     </div>
 </div>
 @empty

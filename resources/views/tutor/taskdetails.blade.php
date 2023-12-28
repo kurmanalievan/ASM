@@ -2,6 +2,16 @@
 
 @section('title', 'Task Details')
 @section('content')
+<style>
+  .card{
+    margin: 20px;
+  }
+  .btn{
+    display: inline-block;
+    margin-left: 20px;
+  }
+  </style>
+<div class="card border-secondary mb-3">
 <div><h1>Grade assignment</h1></div>
 <div class="accordion" id="accordionExample">
     <div class="accordion-item">
@@ -26,19 +36,14 @@
       </div>
     </div>
   </div>
-  {{-- <form class="edit-form"> --}}
 
-    <fieldset>
-    
+</div>
     <form action="{{ route('grade.task', ['task_id' => $task->id]) }}" method="POST">
       @csrf
       <div class="card mb-3">
         <div class="card-body">
-          <h5 class="card-title"><strong>Wed. 2pm:</strong> Mary Robbie</h5>
-          
           <p>Points:  <input type="text" name="points" class="form-control" placeholder="" id="inputDefault">
         </div>
-           
       </div>
       <button type="submit" class="btn btn-primary">Grade</button>
     </form>
@@ -48,6 +53,5 @@
       @method('DELETE')
       <button type="submit" class="btn btn-primary">Delete</button>
     </form>
-  </fieldset>
-  {{-- </form> --}}
+
 @endsection

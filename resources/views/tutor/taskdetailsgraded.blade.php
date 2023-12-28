@@ -2,6 +2,12 @@
 
 @section('title', 'Task Details')
 @section('content')
+<style>
+  .card{
+    margin: 20px;
+  }
+</style>
+<div class="card border-secondary mb-3">
 <div><h1>Graded Assignment</h1></div>
 <div class="accordion" id="accordionExample">
     <div class="accordion-item">
@@ -28,4 +34,5 @@
   </div>
   {{-- <form class="edit-form"> --}}
   {{-- </form> --}}
+  </div>
 @endsection

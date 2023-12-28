@@ -4,7 +4,7 @@
 @section('content')
 <style>
     hr {
-      width: 80%; 
+      width: 100%; 
     }
     h1 {
         margin-top: 5%;
@@ -18,6 +18,7 @@
         width: 80%;
     }
   </style>
+  <div class="card border-primary mb-3" >
   <h1 class="text-left">{{ $task['title']}}</h1>
   <hr />
   <h4 class="text-left"><strong>Due:</strong> {{ $task['date']}}</h4>
@@ -39,4 +40,5 @@
   {{-- <a href="/tasks" class="btn btn-primary">Submit</a> --}}
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+</div>
 @endsection
